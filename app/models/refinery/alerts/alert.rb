@@ -18,8 +18,12 @@ module Refinery
         where('live_at <= :now AND (down_at IS NULL OR :now < down_at)', now: Time.now)
       end
 
-      def self.live_alert
-        live.order('live_at DESC, down_at DESC').first
+      def self.live_alert(reload = false)
+        remove_instance_variable(:@live_alert) if reload
+        unless defined?(@live_alert)
+          @live_alert = live.order('live_at DESC, down_at DESC').first
+        end
+        @live_alert
       end
 
     end
