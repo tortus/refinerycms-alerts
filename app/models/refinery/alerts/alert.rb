@@ -11,21 +11,16 @@ module Refinery
       validates :live_at, :presence => true
 
       def live?
-        self.id == self.class.live_alert.id
+        self.id == ::Refinery::Alerts.live_alert.id
       end
 
       def self.live
         where('live_at <= :now AND (down_at IS NULL OR :now < down_at)', now: Time.now)
       end
 
-      def self.live_alert(reload = false)
-        remove_instance_variable(:@live_alert) if reload
-        unless defined?(@live_alert)
-          @live_alert = live.order('live_at DESC, down_at DESC').first
-        end
-        @live_alert
+      def self.ordered
+        order('live_at DESC, down_at DESC')
       end
-
     end
   end
 end

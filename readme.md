@@ -11,7 +11,7 @@ Refinery::PagesController.class_eval do
   before_filter :set_alert, :if => lambda { home_page? }
 private
   def set_alert
-    @alert = ::Refinery::Alerts::Alert.live_alert
+    @alert = ::Refinery::Alerts.live_alert
   end
 end
 ```

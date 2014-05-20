@@ -16,6 +16,14 @@ module Refinery
       def factory_paths
         @factory_paths ||= [ root.join('spec', 'factories').to_s ]
       end
+
+      def live_alert(reload = false)
+        remove_instance_variable(:@live_alert) if reload
+        unless defined?(@live_alert)
+          @live_alert = Alert.live.ordered.first
+        end
+        @live_alert
+      end
     end
   end
 end
