@@ -20,7 +20,7 @@ module Refinery
       end
 
       def self.live_alert
-        live.order('live_at DESC').first
+        live.order('live_at DESC, down_at DESC').first
       end
 
     end
