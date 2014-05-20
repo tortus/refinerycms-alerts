@@ -11,8 +11,7 @@ module Refinery
       validates :live_at, :presence => true
 
       def live?
-        now = Time.now
-        (live_at.present? && live_at <= now) && (down_at.blank? || now < down_at)
+        self.id == self.class.live_alert.id
       end
 
       def self.live
