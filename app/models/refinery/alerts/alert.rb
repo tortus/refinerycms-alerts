@@ -6,6 +6,7 @@ module Refinery
       attr_accessible :title, :content, :live_at, :down_at, :position
 
       validates :title, :presence => true, :uniqueness => true
+      validates :live_at, :presence => true
 
       def live?
         now = Time.now
