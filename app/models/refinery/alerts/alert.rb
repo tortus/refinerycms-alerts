@@ -7,6 +7,11 @@ module Refinery
 
       validates :title, :presence => true, :uniqueness => true
 
+      def live?
+        now = Time.now
+        (live_at.present? && live_at <= now) && (down_at.blank? || now < down_at)
+      end
+
       def self.live
         where('live_at <= :now AND :now < down_at', now: Time.now)
       end
