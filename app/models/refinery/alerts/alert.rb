@@ -16,7 +16,7 @@ module Refinery
       end
 
       def self.live
-        where('live_at <= :now AND :now < down_at', now: Time.now)
+        where('live_at <= :now AND (down_at IS NULL OR :now < down_at)', now: Time.now)
       end
 
       def self.live_alert
