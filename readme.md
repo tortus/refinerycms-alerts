@@ -3,6 +3,27 @@
 Useful for sites that need to have alert banners go up and come down
 at certain times.
 
+## Usage
+
+```ruby
+# app/decorators/controllers/refinery/pages_controller_decorator.rb
+Refinery::PagesController.class_eval do
+  before_filter :set_alert, :if => lambda { home_page? }
+private
+  def set_alert
+    @alert = ::Refinery::Alerts::Alert.live_alert
+  end
+end
+```
+
+```erb
+# app/views/refinery/pages/home.html.erb
+<% if @alert.present? %>
+  <h2><%= @alert.title %></h2>
+  <%= raw @alert.content %>
+<% end %>
+```
+
 ## How to build this extension as a gem
 
     cd vendor/extensions/alerts
