@@ -5,6 +5,8 @@ module Refinery
 
       attr_accessible :title, :content, :live_at, :down_at, :position
 
+      acts_as_indexed :fields => [:title, :content]
+
       validates :title, :presence => true, :uniqueness => true
       validates :live_at, :presence => true
 
