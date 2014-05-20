@@ -18,7 +18,9 @@ module Refinery
       end
 
       def live_alert(reload = false)
-        remove_instance_variable(:@live_alert) if reload
+        if reload && defined?(@live_alert)
+          remove_instance_variable(:@live_alert)
+        end
         unless defined?(@live_alert)
           @live_alert = ::Refinery::Alerts::Alert.live.ordered.first
         end
