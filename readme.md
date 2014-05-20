@@ -1,5 +1,8 @@
 # Alerts extension for Refinery CMS.
 
+Useful for sites that need to have alert banners go up and come down
+at certain times.
+
 ## How to build this extension as a gem
 
     cd vendor/extensions/alerts
