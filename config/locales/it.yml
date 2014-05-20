@@ -1,0 +1,30 @@
+it:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Aggiungi Nuovo Alert
+            reorder: Riordina Alerts
+            reorder_done: Termina il Riordino di Alerts
+          records:
+            title: Alerts
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora Alerts. Clicca "Aggiungi Nuovo Alert" per aggiungere il tuo primo alert.
+          alert:
+            view_live_html: Guarda live questo alert <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo alert
+            delete: Rimuovi per sempre questo alert
+      alerts:
+        show:
+          other: Altri Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

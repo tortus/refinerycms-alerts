@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Nieuwe Alert toevoegen
+            reorder: De volgorde van de Alerts wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Alert-volgorde
+          records:
+            title: Alerts
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Alerts. Druk op 'Nieuwe Alert toevoegen' om de eerste toe te voegen.
+          alert:
+            view_live_html: Deze alert op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze alert
+            delete: Deze alert definitief verwijderen
+      alerts:
+        show:
+          other: Andere Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

@@ -1,0 +1,30 @@
+sk:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Pridať Alert
+            reorder: Preusporiadať Alerts
+            reorder_done: Koniec radenia Alerts
+          records:
+            title: Alerts
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Alerts. Kliknite na "Pridať Alert" pre pridanie prvého alert.
+          alert:
+            view_live_html: Zobraziť náhľad alert<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť alert
+            delete: Zmazať alert
+      alerts:
+        show:
+          other: Daľšie Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

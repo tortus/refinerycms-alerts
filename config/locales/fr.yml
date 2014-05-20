@@ -1,0 +1,30 @@
+fr:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Alert
+            reorder: Réordonner les Alerts
+            reorder_done: Fin de réordonnancement des Alerts
+          records:
+            title: Alerts
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Alert. Cliquer sur "Créer un(e) nouve(au/l/lle) Alert" pour créer votre premi(er/ère) alert.'
+          alert:
+            view_live_html: Voir ce(t/tte) alert <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) alert
+            delete: Supprimer définitivement ce(t/tte) alert
+      alerts:
+        show:
+          other: Autres Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

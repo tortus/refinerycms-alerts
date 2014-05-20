@@ -1,0 +1,31 @@
+es:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+#        article: masculino/femenino
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Crear nuevo alert
+            reorder: Reordenar alerts
+            reorder_done: Reordenación de alerts completada
+          records:
+            title: Alerts
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay alerts todavía. Pulsa en "Crear nuevo Alert" para crear tu primer alert.
+          alert:
+            view_live_html: Ver este alert como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este alert
+            delete: Borrar este alert para siempre
+      alerts:
+        show:
+          other: Otros alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

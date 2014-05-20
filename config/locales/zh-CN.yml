@@ -1,0 +1,32 @@
+zh-CN:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: 建立新的 Alert
+            reorder: 对 Alerts 重新排序
+            reorder_done: 对 Alerts 的重新排序结束
+          records:
+            title: Alerts
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Alerts yet. Click "Add New Alert" to add your first alert.
+            no_items_yet: 目前没有 Alerts . 点击 "Add New Alert" 创建一个alert.
+          alert:
+            view_live_html: 查看 alert 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 alert
+            delete: 永久删除 alert
+      alerts:
+        show:
+          other: 其他 Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At

@@ -1,0 +1,30 @@
+tr:
+  refinery:
+    plugins:
+      alerts:
+        title: Alerts
+    alerts:
+      admin:
+        alerts:
+          actions:
+            create_new: Yeni Ekle Alert
+            reorder: Tekrar sirala Alerts
+            reorder_done: Tekrar siralama tamamlandiAlerts
+          records:
+            title: Alerts
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Alerts yok henuz.  Tikla "Yeni Ekle Alert" eklemek senin ilk alert.
+          alert:
+            view_live_html: Bunu canlu alert goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle alert
+            delete: Bunu Sil alert sonsuza dek
+      alerts:
+        show:
+          other: Diger Alerts
+  activerecord:
+    attributes:
+      'refinery/alerts/alert':
+        title: Title
+        content: Content
+        live_at: Live At
+        down_at: Down At
