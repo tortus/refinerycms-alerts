@@ -1,14 +1,11 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(alert) -%>">
   <span class='title'>
     <%= alert.title %>
-
   </span>
+  From: <%= alert.live_at %>
+  To: <%= alert.down_at %>
+  <%= raw(" - <strong>Live</strong>") if alert.live? %>
   <span class='actions'>
-    
-    <%= link_to refinery_icon_tag("application_go.png"), refinery.alerts_alert_path(alert),
-        :title => t('.view_live_html'),
-        :target => "_blank" %>
-    
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_alerts_admin_alert_path(alert),
          :title => t('.edit') %>
     <%= link_to refinery_icon_tag("delete.png"), refinery.alerts_admin_alert_path(alert),

@@ -4,7 +4,8 @@ module Refinery
       class AlertsController < ::Refinery::AdminController
 
         crudify :'refinery/alerts/alert',
-                :xhr_paging => true
+                :xhr_paging => true,
+                :order => 'live_at DESC, down_at DESC'
 
       end
     end
