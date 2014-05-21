@@ -10,6 +10,8 @@ module Refinery
       validates :title, :presence => true, :uniqueness => true
       validates :live_at, :presence => true
 
+      after_save :invalidate_live_alert
+
       def live?
         self.id == ::Refinery::Alerts.live_alert.id
       end
@@ -21,6 +23,15 @@ module Refinery
       def self.ordered
         order('live_at DESC, down_at DESC')
       end
+
+      private
+
+        def invalidate_live_alert
+          if changed?
+            ::Refinery::Alerts.invalidate_live_alert
+          end
+        end
+
     end
   end
 end
