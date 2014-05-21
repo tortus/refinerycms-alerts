@@ -16,12 +16,18 @@
   </div>
 
   <div class='field'>
-    <%= f.label :live_at -%>
+    <span class='label-with-help'>
+      <%= f.label :live_at -%>
+      <%= refinery_help_tag "Exact date and time the alert will go live. If there are multiple live alerts, the most recent one will 'win'." %>
+    </span>
     <%= f.datetime_select :live_at -%>
   </div>
 
   <div class='field'>
-    <%= f.label :down_at -%>
+    <span class='label-with-help'>
+      <%= f.label :down_at -%>
+      <%= refinery_help_tag "Exact date and time the alert should come down. Will stay up indefinitely if left blank." %>
+    </span>
     <%= f.datetime_select :down_at, :include_blank => true -%>
   </div>
 
