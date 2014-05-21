@@ -10,10 +10,10 @@ module Refinery
       validates :title, :presence => true, :uniqueness => true
       validates :live_at, :presence => true
 
-      after_save :invalidate_live_alert
+      after_save :invalidate_live_alert, :if => lambda { changed? }
 
       def live?
-        self.id == ::Refinery::Alerts.live_alert.id
+        self.id == self.class.live_alert.id
       end
 
       def self.live
@@ -24,13 +24,15 @@ module Refinery
         order('live_at DESC, down_at DESC')
       end
 
-      private
+      # This needs to be cached or #live? has n+1 queries
+      def self.live_alert(reload = false)
+        invalidate_live_alert if reload
+        Rails.cache.fetch('refinery.alerts.live_alert') { live.ordered.first }
+      end
 
-        def invalidate_live_alert
-          if changed?
-            ::Refinery::Alerts.invalidate_live_alert
-          end
-        end
+      def self.invalidate_live_alert
+        Rails.cache.delete('refinery.alerts.live_alert')
+      end
 
     end
   end
