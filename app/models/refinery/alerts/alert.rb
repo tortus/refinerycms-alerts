@@ -34,6 +34,12 @@ module Refinery
         Rails.cache.delete('refinery.alerts.live_alert')
       end
 
+      private
+
+        def invalidate_live_alert
+          self.class.invalidate_live_alert
+        end
+
     end
   end
 end
