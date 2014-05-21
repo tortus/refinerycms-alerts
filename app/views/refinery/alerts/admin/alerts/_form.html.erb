@@ -20,7 +20,7 @@
       <%= f.label :live_at -%>
       <%= refinery_help_tag "Exact date and time the alert will go live. If there are multiple live alerts, the most recent one will 'win'." %>
     </span>
-    <%= f.datetime_select :live_at -%>
+    <%= f.datetime_select :live_at, :ampm => true -%>
   </div>
 
   <div class='field'>
@@ -28,7 +28,7 @@
       <%= f.label :down_at -%>
       <%= refinery_help_tag "Exact date and time the alert should come down. Will stay up indefinitely if left blank." %>
     </span>
-    <%= f.datetime_select :down_at, :include_blank => true -%>
+    <%= f.datetime_select :down_at, :ampm => true, :include_blank => true -%>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
