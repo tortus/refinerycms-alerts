@@ -1,10 +1,12 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(alert) -%>">
   <span class='title'>
     <strong><%= alert.title %></strong>
+    - <em><%= t('.live_from') %></em> <%= alert.live_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>,
+    <em><%= t('.to') %></em> <%= alert.down_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>
+    <% if alert.live? -%>
+      <span class='label'><%= t('.live') %></span>
+    <% end -%>
   </span>
-  - <em>Live from:</em> <%= alert.live_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>,
-  <em>to:</em> <%= alert.down_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>
-  <% if alert.live? %><span class='label'>live</span><% end %>
   <span class='actions'>
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_alerts_admin_alert_path(alert),
          :title => t('.edit') %>

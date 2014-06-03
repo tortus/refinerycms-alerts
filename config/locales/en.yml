@@ -15,6 +15,9 @@ en:
             sorry_no_results: Sorry! There are no results found.
             no_items_yet: There are no Alerts yet. Click "Add New Alert" to add your first alert.
           alert:
+            live_from: Live from
+            to: to
+            live: live
             view_live_html: View this alert live <br/><em>(opens in a new window)</em>
             edit: Edit this alert
             delete: Remove this alert forever
