@@ -13,7 +13,9 @@ module Refinery
       after_save :invalidate_live_alert, :if => lambda { changed? }
 
       def live?
-        self.id == self.class.live_alert.id
+        if live_alert = self.class.live_alert
+          self.id == live_alert.id
+        end
       end
 
       def self.live
