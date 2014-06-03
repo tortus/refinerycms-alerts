@@ -4,7 +4,7 @@
   </span>
   - <em>Live from:</em> <%= alert.live_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>,
   <em>to:</em> <%= alert.down_at.try(:strftime, '%-m/%-d/%Y %l:%M %p') || 'N/A' %>
-  <%= raw(" - <strong>Live</strong>") if alert.live? %>
+  <% if alert.live? %><span class='label'>live</span><% end %>
   <span class='actions'>
     <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_alerts_admin_alert_path(alert),
          :title => t('.edit') %>
