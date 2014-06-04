@@ -28,12 +28,11 @@ module Refinery
       def self.live_alert(reload = false)
         invalidate_live_alert if reload
         alert = Rails.cache.fetch('refinery.alerts.live_alert') { live.ordered.first }
-        if alert.live?
-          alert
-        else
+        if alert && !alert.live?
           invalidate_live_alert
-          nil
+          alert = nil
         end
+        alert
       end
 
       def self.invalidate_live_alert
