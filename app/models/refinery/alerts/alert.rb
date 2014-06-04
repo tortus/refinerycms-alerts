@@ -13,9 +13,8 @@ module Refinery
       after_save :invalidate_live_alert, :if => lambda { changed? }
 
       def live?
-        if live_alert = self.class.live_alert
-          self.id == live_alert.id
-        end
+        now = Time.now
+        live_at <= now && (down_at.blank? || now < down_at)
       end
 
       def self.live
@@ -26,10 +25,15 @@ module Refinery
         order('live_at DESC, down_at DESC')
       end
 
-      # This needs to be cached or #live? has n+1 queries
       def self.live_alert(reload = false)
         invalidate_live_alert if reload
-        Rails.cache.fetch('refinery.alerts.live_alert') { live.ordered.first }
+        alert = Rails.cache.fetch('refinery.alerts.live_alert') { live.ordered.first }
+        if alert.live?
+          alert
+        else
+          invalidate_live_alert
+          nil
+        end
       end
 
       def self.invalidate_live_alert
