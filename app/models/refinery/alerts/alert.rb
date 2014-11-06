@@ -31,9 +31,10 @@ module Refinery
         alert = Rails.cache.fetch('refinery.alerts.live_alert') { live.ordered.first }
         if alert && !alert.live?
           invalidate_live_alert
-          alert = nil
+          nil
+        else
+          alert
         end
-        alert
       end
 
       def self.invalidate_live_alert
