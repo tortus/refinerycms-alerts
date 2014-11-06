@@ -11,6 +11,7 @@ module Refinery
       validates :live_at, :presence => true
 
       after_save :invalidate_live_alert, :if => lambda { changed? }
+      after_destroy :invalidate_live_alert
 
       def live?
         now = Time.now
