@@ -71,6 +71,14 @@ module Refinery
         end
       end
 
+      describe "Alert.ordered scope" do
+        it "sorts by live_at" do
+          older = FactoryGirl.create(:alert, :live_at => 1.hour.ago)
+          recent = FactoryGirl.create(:alert, :live_at => Time.zone.now)
+          Alert.ordered.should eq([recent, older])
+        end
+      end
+
     end
   end
 end
