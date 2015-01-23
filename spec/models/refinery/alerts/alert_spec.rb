@@ -79,6 +79,14 @@ module Refinery
         end
       end
 
+      describe "Alert.live_alert" do
+        it "returns the first live alert" do
+          older = FactoryGirl.create(:alert, :live_at => 1.hour.ago)
+          recent = FactoryGirl.create(:alert, :live_at => Time.zone.now)
+          Alert.live_alert.should eq(recent)
+        end
+      end
+
     end
   end
 end
