@@ -14,12 +14,12 @@ module Refinery
       after_destroy :invalidate_live_alert
 
       def live?
-        now = Time.now
+        now = Time.zone.now
         live_at <= now && (down_at.blank? || now < down_at)
       end
 
       def self.live
-        where('live_at <= :now AND (down_at IS NULL OR :now < down_at)', :now => Time.now)
+        where('live_at <= :now AND (down_at IS NULL OR :now < down_at)', :now => Time.zone.now)
       end
 
       def self.ordered
