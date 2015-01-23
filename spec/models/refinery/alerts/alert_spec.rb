@@ -3,15 +3,21 @@ require 'spec_helper'
 module Refinery
   module Alerts
     describe Alert do
+      subject do
+        FactoryGirl.build(:alert)
+      end
+
       describe "validations" do
         subject do
-          FactoryGirl.create(:alert,
-          :title => "Refinery CMS")
+          FactoryGirl.build(:alert)
         end
 
         it { should be_valid }
         its(:errors) { should be_empty }
-        its(:title) { should == "Refinery CMS" }
+      end
+
+      it "saves" do
+        expect(subject.save!).to be_truthy
       end
     end
   end
