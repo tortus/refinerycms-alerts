@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
 
   # Development dependencies (usually used for testing)
   s.add_development_dependency 'refinerycms-testing', '~> 2.1.2'
+  s.add_development_dependency 'guard-rspec'
 end
