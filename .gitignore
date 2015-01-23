@@ -5,3 +5,4 @@ Thumbs.db
 .ruby-version
 
 Gemfile.lock
+/spec/dummy
