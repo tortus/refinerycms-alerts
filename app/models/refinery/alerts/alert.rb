@@ -3,7 +3,7 @@ module Refinery
     class Alert < Refinery::Core::BaseModel
       self.table_name = 'refinery_alerts'
 
-      attr_accessible :title, :content, :live_at, :down_at, :position
+      attr_accessible :title, :alert_type, :content, :live_at, :down_at, :position
 
       acts_as_indexed :fields => [:title, :content]
 
