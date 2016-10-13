@@ -9,6 +9,11 @@
   </div>
 
   <div class='field'>
+    <%= f.label :critical -%>
+    <%= f.check_box :critical -%>
+  </div>
+
+  <div class='field'>
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
                 :fields => [:content],

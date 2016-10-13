@@ -1,6 +1,6 @@
 <% alert = local_assigns[:alert] || @alert || Refinery::Alerts::Alert.live_alert -%>
 <% if alert.present? %>
-  <div class="refinery_alert">
+  <div class="refinery_alert<%= alert.critical? ? ' critical' : '' %>">
     <h2><%= alert.title %></h2>
     <%= raw alert.content %>
   </div>
