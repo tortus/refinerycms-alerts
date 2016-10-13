@@ -20,6 +20,13 @@ module Refinery
       def live_alert(*args)
         ::Refinery::Alerts::Alert.live_alert(*args)
       end
+
+      def alert_types
+        @alert_types ||= [
+          ['Normal', ''],
+          ['Critical', 'critical']
+        ]
+      end
     end
   end
 end

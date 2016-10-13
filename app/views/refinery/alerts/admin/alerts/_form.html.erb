@@ -9,12 +9,8 @@
   </div>
 
   <div class='field'>
-    <span class='label_with_help'>
-      <%= f.label :critical, "Alert type" %>
-      <%= refinery_help_tag "Mark this alert as critical" %>
-    </span>
-    <%= f.check_box :critical %>
-    <%= f.label :critical, :class => "stripped" %>
+    <%= f.label :alert_type %>
+    <%= f.select :alert_type, ::Refinery::Alerts.alert_types, :include_blank => false %>
   </div>
 
   <div class='field'>

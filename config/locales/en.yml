@@ -28,6 +28,7 @@ en:
     attributes:
       'refinery/alerts/alert':
         title: Title
+        alert_type: Alert type
         content: Content
         live_at: Live At
         down_at: Down At
